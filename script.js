@@ -25,7 +25,9 @@ function getTime() {
       $(checkTimes[i]).addClass('past');
       $(checkTimes[i]).attr("readonly", "readonly");
       
-     // break;
+    if (hours > 12) {
+      hours = 1;
+    }
 
     } else if (hours > time) {
       $(checkTimes[i]).addClass('past');
@@ -38,7 +40,7 @@ function getTime() {
       
     }
     console.log(hours > time);
-    //hr = hr +01;
+    
     console.log('Momentjs time is: ' + time);
     console.log('Time is: ' + hours);      
     console.log(hours > time);
@@ -46,6 +48,7 @@ function getTime() {
   }
   
 }
+
 
 
 getTime();
