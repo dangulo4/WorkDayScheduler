@@ -43,7 +43,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #6e6d6d;
   color: white;
 }
 
@@ -58,6 +58,7 @@ textarea{
 }
 
 .saveBtn {
+  margin: auto 0;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -80,4 +81,20 @@ textarea{
   height: 50px;
   text-align: center;
   vertical-align: bottom;
+}
+
+
+/* media query to align the text to center and give margin */   
+@media screen and (max-width: 767px) {
+  .col-md-3 {
+      text-align: center;
+  }
+}
+
+
+/* media query to align the text to center and give margin */
+@media screen and (min-width: 320px) {
+  .col-md-3 {
+      text-align: center;
+   }
 }
