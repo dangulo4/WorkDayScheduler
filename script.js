@@ -1,17 +1,23 @@
 $(document).ready(function () {
   // need to get element by ID
-  var eventPlanner = document.querySelector("#eventtext");
-  //var todoForm = document.querySelector("#todo-form");
-
-
-  // Save appointment when button is clcked
+  var eventsEntered = document.querySelector("#eventText");
+ 
+  var enteredEvents = JSON.parse(localStorage.getItem('enteredEvents'));
+  
+  eventsEntered.textContent = enteredEvents;
+  
   $('.saveBtn').on('click', function (events) {
-    //alert('Your event has beed saved');
-    for (var i = 1; i < 9; i++) {
-      localStorage.setItem('events' + i, JSON.stringify(events));
-      document.getElementById("#event").innerHTML = localStorage.getItem('');
-    }
+    event.preventDefault();
+    //eventsEntered.textContent = enteredEvents;
+    
+   
+    localStorage.setItem('enteredEvents', JSON.stringify(enteredEvents));
+    
+    
   });
+ 
+   
+
   
   function getTimeAM() {
     var hours = 8;
@@ -53,7 +59,7 @@ $(document).ready(function () {
 
       } else if (hoursPM < timePM) {
         $(checkTimesPM[i]).addClass('past');
-        $(checkTimesPM[i]).attr("readonly", "readonly");
+       $(checkTimesPM[i]).attr("readonly", "readonly");
       }
       console.log('Hours PM is : ' + hoursPM < timePM);
       console.log('Momentjs time is: ' + timePM);
@@ -62,7 +68,7 @@ $(document).ready(function () {
     }
   }
 
-  // Check for hours only during working hours of 9 am thru 5pm
+  //Check for hours only during working hours of 9 am thru 5pm
   function checkInitialTime() {
     if (moment().format('HHmm') > 1700 && (moment().format('HHmm') < 0900)) {
       $('#eventText').addClass('past');
